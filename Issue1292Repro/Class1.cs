@@ -2,18 +2,15 @@
 {
     public class Class1
     {
-        public static bool DoSomething(string foo)
+        public static bool DoSomething(string? foo)
         {
-            return ExpectOneOf(foo ?? "hello2") switch
+            var baa = foo ?? "hello2";
+            return baa switch
             {
-                "hello" => true,
-                "hello2" => true
+                "hello" => true,  
+                string keyWord => true,
+                //_ => true,   //this as default has 100% coverage
             };
-        }
-
-        private static string ExpectOneOf(string foo)
-        {
-            return foo;
         }
     }
 }
